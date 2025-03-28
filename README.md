@@ -195,49 +195,25 @@ GR2Utils.ImportCollada("model.dae", "model.gr2");
 
 ## Command Line Usage (Divine)
 
-Divine provides command-line access to all LSLib functionality.
+Divine provides command-line access to all LSLib functionality. 
 
-### Basic Commands
+For basic usage:
 
 ```
 # Extract a package
-Divine.exe extract-package --source "game.pak" --destination "output_dir/"
+Divine.exe extract-package --game bg3 --source "game.pak" --destination "output_dir/"
 
 # Create a package
-Divine.exe create-package --source "input_dir/" --destination "game.pak"
+Divine.exe create-package --game bg3 --source "input_dir/" --destination "game.pak"
 
 # Convert a resource
-Divine.exe convert-resource --source "input.lsf" --destination "output.lsx" --input-format LSF --output-format LSX
+Divine.exe convert-resource --game bg3 --source "input.lsf" --destination "output.lsx"
 
 # Convert a model
-Divine.exe convert-model --source "model.gr2" --destination "model.dae"
+Divine.exe convert-model --game bg3 --source "model.gr2" --destination "model.dae"
 ```
 
-### Batch Operations
-
-```
-# Extract multiple packages
-Divine.exe extract-packages --source "packages_dir/" --destination "output_dir/"
-
-# Convert multiple resources
-Divine.exe convert-resources --source "resources_dir/" --destination "output_dir/" --input-format LSF --output-format LSX
-
-# Convert multiple models
-Divine.exe convert-models --source "models_dir/" --destination "output_dir/"
-```
-
-### Advanced Options
-
-```
-# Extract with filtering
-Divine.exe extract-package --source "game.pak" --destination "output_dir/" --expression "*.lsf"
-
-# Create with compression
-Divine.exe create-package --source "input_dir/" --destination "game.pak" --compression "zlib"
-
-# Convert model with options
-Divine.exe convert-model --source "model.gr2" --destination "model.dae" --options "export-normals,export-tangents,export-uvs"
-```
+For a comprehensive guide to all CLI features and options, see the [Divine CLI Guide](docs/cli-guide.md).
 
 ## GUI Usage (ConverterApp)
 
@@ -281,48 +257,48 @@ Then open the `LSTools.sln` solution in Visual Studio and build it.
 
 1. Extract the game package:
    ```
-   Divine.exe extract-package --source "Game.pak" --destination "extracted/"
+   Divine.exe extract-package --game bg3 --source "Game.pak" --destination "extracted/"
    ```
 
 2. Convert files to a human-readable format:
    ```
-   Divine.exe convert-resources --source "extracted/" --destination "editable/" --input-format LSB --output-format LSX
+   Divine.exe convert-resources --game bg3 --source "extracted/" --destination "editable/" --input-format LSB --output-format LSX
    ```
 
 3. Make your changes to the XML files
 
 4. Convert back to the game format:
    ```
-   Divine.exe convert-resources --source "editable/" --destination "modified/" --input-format LSX --output-format LSB
+   Divine.exe convert-resources --game bg3 --source "editable/" --destination "modified/" --input-format LSX --output-format LSB
    ```
 
 5. Create a new mod package:
    ```
-   Divine.exe create-package --source "modified/" --destination "MyMod.pak"
+   Divine.exe create-package --game bg3 --source "modified/" --destination "MyMod.pak"
    ```
 
 ### Working with Models/Animations
 
 1. Extract models from the game:
    ```
-   Divine.exe extract-package --source "Game.pak" --destination "extracted/" --expression "*.gr2"
+   Divine.exe extract-package --game bg3 --source "Game.pak" --destination "extracted/" --expression "*.gr2"
    ```
 
 2. Convert to Collada format for editing:
    ```
-   Divine.exe convert-model --source "extracted/model.gr2" --destination "model.dae"
+   Divine.exe convert-model --game bg3 --source "extracted/model.gr2" --destination "model.dae"
    ```
 
 3. Edit in 3D software (Blender, 3ds Max, etc.)
 
 4. Convert back to GR2:
    ```
-   Divine.exe convert-model --source "model.dae" --destination "modified/model.gr2"
+   Divine.exe convert-model --game bg3 --source "model.dae" --destination "modified/model.gr2"
    ```
 
 5. Create a mod package with the modified models:
    ```
-   Divine.exe create-package --source "modified/" --destination "ModelMod.pak"
+   Divine.exe create-package --game bg3 --source "modified/" --destination "ModelMod.pak"
    ```
 
 ## Version History
